@@ -12,12 +12,13 @@ for (int i = 18; i > 8; i--) {
 
 ## Soal 2
 
-** Mengapa sangat penting untuk memahami bahasa pemrograman Dart sebelum kita menggunakan framework Flutter ? Jelaskan! **
+**Mengapa sangat penting untuk memahami bahasa pemrograman Dart sebelum kita menggunakan framework Flutter ? Jelaskan!**
+
 Flutter pada dasarnya dibangun menggunakan bahasa pemrograman Dart. Sehingga semua kode yang ditulis dalam aplikasi Flutter adalah kode Dart. Memahami sintaks dasar Dart seperti deklarasi variabel, fungsi, pengendalian alur (if-else, loop), dan fitur kelas akan mempermudah dalam menulis kode aplikasi Flutter dengan lebih efektif dan efisien.
 
 ## Soal 3
 
-** Rangkumlah materi dari codelab **
+**Rangkumlah materi dari codelab**
 
 - Dart menggabungkan kelebihan-kelebihan dari bahasa tingkat tinggi dengan fitur-fitur bahasa pemrograman terkini, Seperti Productive tooling, Garbage collection, Type annotations, Statically typed dan Portability
 - Diluncurkan pada tahun 2011, Dart telah berkembang sejak saat itu dan pada tahun 2013 diluncurkan versi Stabilnya.
@@ -30,7 +31,7 @@ Flutter pada dasarnya dibangun menggunakan bahasa pemrograman Dart. Sehingga sem
 
 ## Soal 4
 
-** Penjelasan dan contoh eksekusi kode tentang perbedaan Null Safety dan Late variabel **
+**Penjelasan dan contoh eksekusi kode tentang perbedaan Null Safety dan Late variabel**
 
 ```dart
   String? nama; //variabel Nama Bisa tidak diisi
