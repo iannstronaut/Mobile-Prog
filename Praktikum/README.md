@@ -127,7 +127,7 @@ mainAxisAlignment: MainAxisAlignment.center,
             const MyTextWidget(),]
 ```
 
-![Screenshot](img\Screenshot1.png)
+![Screenshot](img/Screenshot1.png)
 
 ### Langkah 2
 
@@ -154,7 +154,7 @@ children: <Widget>[
             const MyImageWidget(),]
 ```
 
-![Screenshot2](img\Screenshot2.png)
+![Screenshot2](img/Screenshot2.png)
 
 ## Menerapkan Widget Material Design dan iOS Cupertino
 
@@ -189,7 +189,7 @@ class LoadingCupWidget extends StatelessWidget {
 }
 ```
 
-![Screenshot3](img\Screenshot3.png)
+![Screenshot3](img/Screenshot3.png)
 
 ### Langkah 2
 
@@ -221,7 +221,7 @@ floatingActionButton: FabCupWidget(
               _incrementCounter),
 ```
 
-![Screenshot4](img\Screenshot4.png)
+![Screenshot4](img/Screenshot4.png)
 
 ### Langkah 3
 
@@ -262,7 +262,7 @@ Widget build(BuildContext context) {
   }
 ```
 
-![Screenshot5](img\Screenshot5.png)
+![Screenshot5](img/Screenshot5.png)
 
 ### Langkah 4
 
@@ -327,7 +327,7 @@ showAlertDialog(BuildContext context) {
 }
 ```
 
-![Screenshot6](img\Screenshot6.png)
+![Screenshot6](img/Screenshot6.png)
 
 ### Langkah 5
 
@@ -355,7 +355,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-![Screenshot7](img\Screenshot7.png)
+![Screenshot7](img/Screenshot7.png)
 
 ### Langkah 6
 
@@ -437,13 +437,13 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
-![Screenshot8](img\Screenshot8.png)
+![Screenshot8](img/Screenshot8.png)
 
 # Tugas
 
 ### Menghubungkan ke perangkat fisik dan menjalankan aplikasi Flutter
 
-![flutter](img\IMG_20240930_175959.jpg)
+![flutter](img/IMG_20240930_175959.jpg)
 
 ### Buatlah file widget tersendiri di folder basic_widgets, kemudian pada file main.dart cukup melakukan import widget sesuai masing-masing langkah tersebut!
 
@@ -661,5 +661,5 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
-![Screenshot9](img\Screenshot9.png)
-![Screenshot9](img\Screenshot10png.png)
+![Screenshot9](img/Screenshot9.png)
+![Screenshot9](img/Screenshot10png.png)
