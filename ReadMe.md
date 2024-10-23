@@ -17,3 +17,6 @@
 
 **Manajemen Plugin**
 [Link Folder](https://github.com/iannstronaut/Mobile-Prog/tree/Pertemuan7)
+
+**UTS Clone Link Aja**
+[Link Folder](https://github.com/iannstronaut/Mobile-Prog/tree/UTS/linkaja_v2)
