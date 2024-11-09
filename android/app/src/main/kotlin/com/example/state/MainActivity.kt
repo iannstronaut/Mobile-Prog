@@ -1,4 +1,4 @@
-package com.example.pertemuan7
+package com.example.state
 
 import io.flutter.embedding.android.FlutterActivity
 

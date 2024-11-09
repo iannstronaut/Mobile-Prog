@@ -1,6 +1,6 @@
 {
-    "name": "pertemuan7",
-    "short_name": "pertemuan7",
+    "name": "state",
+    "short_name": "state",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
