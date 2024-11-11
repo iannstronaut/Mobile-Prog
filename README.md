@@ -534,8 +534,7 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
    ![P7S1](img/P7S1.png)
 
    > - Tidak ada perbedaan UI karna pada dasarnya kedua kode sama sama menghasilkan hasil yang sama
-   >   ![P7S1](img/P7S1.png)
-   >   ![P7T13](img/P7T13.png)
+   >   ![P7S1](img/P7S1.png) > ![P7T13](img/P7T13.png)
 
 6. Tambah handling error
 
@@ -548,5 +547,167 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
 
    - Soal 14
      > - Perubahan UI Terdapat jika terjadi error, jika error terjadi maka akan mengembalikan 'Something terrible happened!'
-     >   ![P7S1](img/P7S1.png)
-     >
+     >   ![P7S1](img/P7S1.png) > ![P7T13](img/P7T14.png)
+
+## Praktikum 8
+
+1.  Buat file baru `navigation_first.dart`
+
+2.  Isi kode navigation_first.dart
+
+    ```dart
+    import 'package:flutter/material.dart';
+
+        class NavigationFirst extends StatefulWidget {
+        const NavigationFirst({super.key});
+
+        @override
+        State<NavigationFirst> createState() => _NavigationFirstState();
+    }
+
+    class _NavigationFirstState extends State<NavigationFirst> {
+        Color color = Colors.blue.shade700;
+        @override
+        Widget build(BuildContext context) {
+            return Scaffold(
+                backgroundColor: color,
+                appBar: AppBar(
+                    title: const Text('Navigation First Screen By'),
+                ),
+                body: Center(
+                    child: ElevatedButton(
+                    onPressed: () {
+                        _navigateAndGetColor(context);
+                    },
+                    child: const Text('Change Color'),
+                    ),
+                ),
+            );
+        }
+    }
+    ```
+
+    - Soal 15
+      > title: const Text('Navigation First Screen By')
+
+3.  Tambah method di class \_NavigationFirstState
+
+    ```dart
+    Future _navigateAndGetColor(BuildContext context) async {
+        color = await Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const NavigationSecond()),
+        );
+    }
+    ```
+
+4.  Buat file baru `navigation_second.dart`
+
+5.  Buat class NavigationSecond dengan StatefulWidget
+
+    ```dart
+    import 'package:flutter/material.dart';
+
+    class NavigationSecond extends StatefulWidget {
+        const NavigationSecond({super.key});
+
+        @override
+        State<NavigationSecond> createState() => _NavigationSecondState();
+    }
+
+    class _NavigationSecondState extends State<NavigationSecond> {
+        @override
+        Widget build(BuildContext context) {
+            Color color;
+            return Scaffold(
+                appBar: AppBar(
+                    title: const Text("Navigation Second Screen By"),
+                ),
+                body: Center(
+                    child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                            ElevatedButton(
+                            onPressed: () {
+                                color = Colors.red.shade700;
+                            },
+                            child: const Text("Red"),
+                            ),
+                            ElevatedButton(
+                            onPressed: () {
+                                color = Colors.green.shade700;
+                            },
+                            child: const Text("Green"),
+                            ),
+                            ElevatedButton(
+                            onPressed: () {
+                                color = Colors.blue.shade700;
+                            },
+                            child: const Text("Blue"),
+                            ),
+                        ],
+                    ),
+                ),
+            );
+        }
+    }
+    ```
+
+6.  Edit main.dart
+
+    ```dart
+    home: const NavigationFirst(),
+    ```
+
+    - Soal 16
+      > - Ketika button di klik akan mengubah warna pada NavigationFirstScreen
+      >
+      > ```dart
+      > Column(
+      > ```
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  // Ubah warna menjadi merah dan kembalikan ke halaman sebelumnya
+                  Navigator.pop(context, Colors.red.shade700);
+                },
+                child: const Text("Red"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Ubah warna menjadi hijau dan kembalikan ke halaman sebelumnya
+                  Navigator.pop(context, Colors.green.shade700);
+                },
+                child: const Text("Green"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Ubah warna menjadi biru dan kembalikan ke halaman sebelumnya
+                  Navigator.pop(context, Colors.blue.shade700);
+                },
+                child: const Text("Blue"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Ubah warna menjadi biru dan kembalikan ke halaman sebelumnya
+                  Navigator.pop(context, Colors.purple.shade700);
+                },
+                child: const Text("Purple"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Ubah warna menjadi biru dan kembalikan ke halaman sebelumnya
+                  Navigator.pop(context, Colors.orange.shade700);
+                },
+                child: const Text("Orange"),
+              ),
+            ],
+            ),
+      > ```
+      > Menjadi 5 Warna
+      > ```
+      >
+      > ![P8T13S1](img/P8T16S1.png) > ![P8T13S2](img/P8T16S2.png) > ![P8T13S3](img/P8T16S3.png)
+      
+      >
