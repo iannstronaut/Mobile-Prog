@@ -842,4 +842,4 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
 
    > ![P9T13S1](img/P9T17S1.png) > ![P9T13S2](img/P9T17S2.png) > ![P9T13S3](img/P9T17S3.png)
 
-   >
+   > ![P9T13S4](img/P9T17S4.png)
