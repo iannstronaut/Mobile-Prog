@@ -289,6 +289,7 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
    ```
 
 2. Edit `onPressed()`
+
    ```dart
    onPressed: () {
        returnFG();
@@ -296,7 +297,176 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
    ```
 
 3. Hasil
-    ![P4S1](img/P4S1.png)
+   ![P4S1](img/P4S1.png)
 
-    - Soal 7
-    > ![P4S1](img/P4S1.png)
+   - Soal 7
+     > ![P4S1](img/P4S1.png) > ![P4T7](img/P4T7.png)
+
+4. Ganti variabel futureGroup
+
+   ```dart
+   final futures = Future.wait<int>([
+     returnOneAsync(),
+     returnTwoAsync(),
+     returnThreeAsync(),
+   ]);
+   ```
+
+   - Soal 8
+     > - Pada langkah 1, kode menggunakan `FutureGroup<int>`, yang memungkinkan penambahan Future secara bertahap sebelum ditutup dengan `futureGroup.close()`, kemudian menunggu hingga semua _Future_ selesai untuk menghitung total.
+     > - pada langkah 4, kode menggunakan `Future.wait<int>()`, yang lebih ringkas karena langsung menunggu semua Future dalam daftar (`returnOneAsync()`, `returnTwoAsync()`, `returnThreeAsync()`) selesai secara bersamaan tanpa perlu penambahan Future secara manual atau pemanggilan `.close()`.
+
+## Praktikum 5
+
+1. Buka file main.dart
+
+   ```dart
+   Future returnError() async {
+       await Future.delayed(const Duration(seconds: 2));
+       throw Exception('Something terrible happened');
+   }
+   ```
+
+2. ElevatedButton
+
+   ```dart
+   returnError().then((value) {
+       setState(() {
+           result = 'Success';
+       });
+   }).catchError((onError){
+       setState(() {
+           result = onError.toString();
+       });
+   }).whenComplete(() => print('Complete'));
+   ```
+
+3. Hasil
+   ![P5S1](img/P5S1.png)
+
+   - Soal 9
+     > ![P5S1](img/P5S1.png)
+
+4. Tambah method `handleError()`
+
+   ```dart
+   Future handleError() async {
+       try {
+           await returnError();
+       } catch (error) {
+           setState(() {
+               result = error.toString();
+       });
+       } finally {
+           print('Complete');
+       }
+   }
+   ```
+
+   - Soal 10
+     > ```dart
+     > handleError();
+     > ```
+     >
+     > ![P5S2](img/P5S2.png)
+     >
+     > - Pada langkah 1, method `returnError()` secara sengaja melempar sebuah Exception setelah penundaan 2 detik tanpa menangani kesalahan tersebut.
+     > - Pada langkah 4, method `handleError()` menambahkan penanganan error menggunakan blok _try-catch_, di mana error yang dilempar oleh `returnError()` akan ditangkap dan ditampilkan di UI melalui `setState()`. Selain itu, blok _finally_ memastikan bahwa pesan "Complete" akan dicetak ke konsol terlepas dari apakah terjadi error atau tidak, menandakan bahwa eksekusi telah selesai.
+
+## Praktikum 6
+
+1. install plugin geolocator
+
+   ```bash
+   flutter pub add geolocator
+   ```
+
+2. Tambah permission GPS
+
+   ```xml
+   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+   ```
+
+3. Buat file `geolocation.dart`
+
+   Buat StatefulWidget lalu Isi kode geolocation.dart
+
+   ```dart
+   import 'package:flutter/material.dart';
+   import 'package:geolocator/geolocator.dart';
+
+   class LocationScreen extends StatefulWidget {
+       const LocationScreen({super.key});
+
+       @override
+       State<LocationScreen> createState() => _LocationScreenState();
+       }
+
+   class _LocationScreenState extends State<LocationScreen> {
+       String myPosition = '';
+
+       @override
+       void initState() {
+           super.initState();
+           getPosition().then((Position myPos) {
+           myPosition =
+               'Latitude: ${myPos.latitude.toString()} - Longitude: ${myPos.longitude.toString()}';
+           });
+       }
+
+       @override
+       Widget build(BuildContext context) {
+           return Scaffold(
+               appBar: AppBar(
+                   title: const Text("Current Location By"),
+               ),
+               body: Center(
+                   child: Text(myPosition),
+               ),
+           );
+       }
+
+       Future<Position> getPosition() async {
+           await Geolocator.requestPermission();
+           await Geolocator.isLocationServiceEnabled();
+           Position? position = await Geolocator.getCurrentPosition();
+           return position;
+       }
+   }
+   ```
+
+    - Soal 11
+    > ```dart title: const Text("Current Location By")```
+
+4. Edit main.dart
+    ```dart
+    home: LocationScreen(),
+    ```
+
+5. Hasil
+    ![P6S1](img/P6S1.png)
+
+6. Tambahkan animasi loading
+    ```dart
+    @override
+    Widget build(BuildContext context) {
+        final myWidget = myPosition == ''
+            ? const CircularProgressIndicator()
+            : Text(myPosition);
+        ;
+        return Scaffold(
+            appBar: AppBar(
+                title: const Text("Current Location By"),
+            ),
+            body: Center(
+                child: myWidget,
+            ),
+        );
+    }
+    ```
+
+    - Soal 12
+    > ![P6S2](img\P6S2.png)
+    > ![P6S1](img\P6S1.png)
+    > 
