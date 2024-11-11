@@ -79,11 +79,11 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
        }
    }
    ```
-    - Soal 1 
-    > ```dart
-    >   title: 'By'
-    > ```
 
+   - Soal 1
+     > ```dart
+     >   title: 'By'
+     > ```
 
 4. Tambah method `getData()`
 
@@ -95,12 +95,13 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
        return http.get(url);
    }
    ```
-    - Soal 2
-    > ```dart
-    > const path = '/books/v1/volumes/jWTvDwAAQBAJ';
-    > ```
 
-    > ![P1T2](img/P1T2.png)
+   - Soal 2
+     > ```dart
+     > const path = '/books/v1/volumes/jWTvDwAAQBAJ';
+     > ```
+
+   > ![P1T2](img/P1T2.png)
 
 5. Tambah kode di ElevatedButton
 
@@ -117,11 +118,12 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
        });
    }
    ```
-    - Soal 3
-    > - `substring(0, 450)` mengambil potongan teks dari indeks ke-0 hingga ke-449.
-    > - `.catchError((_) { ... })` digunakan untuk menangani error yang terjadi selama proses getData().
 
-    > ![P1T3](img/P1T3.png)
+   - Soal 3
+     > - `substring(0, 450)` mengambil potongan teks dari indeks ke-0 hingga ke-449.
+     > - `.catchError((_) { ... })` digunakan untuk menangani error yang terjadi selama proses getData().
+
+   > ![P1T3](img/P1T3.png)
 
 6. Hasil
 
@@ -179,11 +181,11 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
 
    ![P2S1](img/P2S1.png)
 
-    - Soal 4
-    > - Ketiga method (`returnOneAsync`, `returnTwoAsync`, dan `returnThreeAsync`) adalah fungsi asynchronous yang masing-masing mengembalikan nilai integer (1, 2, dan 3). Setelah delay selama 3 detik, masing-masing fungsi akan mengembalikan nilai integer (1, 2, atau 3).
-    > - Method `count()` adalah fungsi asynchronous yang digunakan untuk menghitung total dari hasil ketiga fungsi di atas. 
+   - Soal 4
+     > - Ketiga method (`returnOneAsync`, `returnTwoAsync`, dan `returnThreeAsync`) adalah fungsi asynchronous yang masing-masing mengembalikan nilai integer (1, 2, dan 3). Setelah delay selama 3 detik, masing-masing fungsi akan mengembalikan nilai integer (1, 2, atau 3).
+     > - Method `count()` adalah fungsi asynchronous yang digunakan untuk menghitung total dari hasil ketiga fungsi di atas.
 
-    > ![P2T4](img/P2T4.png)
+   > ![P2T4](img/P2T4.png)
 
 ## Praktikum 3
 
@@ -227,9 +229,9 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
    ![P3S1](img/P3S1.png)
 
    - Soal 5
-    > - Kode ini menggunakan _Completer_ untuk mengontrol kapan sebuah _Future_ selesai. Fungsi `getNumber()` membuat `Completer<int>`, memanggil `calculate()`, dan mengembalikan _Future_ yang belum selesai. Fungsi `calculate()` menunggu 5 detik dengan _Future.delayed_, lalu menyelesaikan _Future_ tersebut dengan nilai 42 menggunakan `completer.complete(42)`. Hasilnya, _Future_ yang dikembalikan oleh `getNumber()` akan selesai dengan nilai 42 setelah 5 detik, memungkinkan kontrol manual atas penyelesaian _Future_ tersebut.
-    
-    > ![P3T5](img/P3T5.png) 
+     > - Kode ini menggunakan _Completer_ untuk mengontrol kapan sebuah _Future_ selesai. Fungsi `getNumber()` membuat `Completer<int>`, memanggil `calculate()`, dan mengembalikan _Future_ yang belum selesai. Fungsi `calculate()` menunggu 5 detik dengan _Future.delayed_, lalu menyelesaikan _Future_ tersebut dengan nilai 42 menggunakan `completer.complete(42)`. Hasilnya, _Future_ yang dikembalikan oleh `getNumber()` akan selesai dengan nilai 42 setelah 5 detik, memungkinkan kontrol manual atas penyelesaian _Future_ tersebut.
+
+   > ![P3T5](img/P3T5.png)
 
 5. Ganti method `calculate()`
 
@@ -256,7 +258,45 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
    });
    ```
 
-    - Soal 6
-    > - Perbedaan antara langkah 2 dan langkah 5-6 ada di **Error Handler**. Pada langkah 2, method `calculate()` hanya menyelesaikan _Future_ dengan nilai 42 setelah 5 detik tanpa penanganan error. Sementara itu, pada langkah 5, `calculate()` menggunakan blok **`try-catch`**, sehingga jika terjadi error, `completer.completeError({})` akan dipanggil untuk menandai _Future_ sebagai gagal. Di langkah 6, onPressed() diperbarui untuk menangani keberhasilan dengan then() yang menampilkan hasil, atau `catchError()` untuk menampilkan pesan error, sehingga aplikasi dapat menampilkan respons yang sesuai tergantung pada apakah Future berhasil atau gagal.
-    
-    > ![P3T6]()
+   - Soal 6
+     > - Perbedaan antara langkah 2 dan langkah 5-6 ada di **Error Handler**. Pada langkah 2, method `calculate()` hanya menyelesaikan _Future_ dengan nilai 42 setelah 5 detik tanpa penanganan error. Sementara itu, pada langkah 5, `calculate()` menggunakan blok **`try-catch`**, sehingga jika terjadi error, `completer.completeError({})` akan dipanggil untuk menandai _Future_ sebagai gagal. Di langkah 6, onPressed() diperbarui untuk menangani keberhasilan dengan then() yang menampilkan hasil, atau `catchError()` untuk menampilkan pesan error, sehingga aplikasi dapat menampilkan respons yang sesuai tergantung pada apakah Future berhasil atau gagal.
+
+   > ![P3T6](img/P3T6.png)
+
+## Praktikum 4
+
+1. Buka file main.dart
+
+   Tambahkan method ini ke dalam class `_FuturePageState`
+
+   ```dart
+   void returnFG() {
+       FutureGroup<int> futureGroup = FutureGroup<int>();
+       futureGroup.add(returnOneAsync());
+       futureGroup.add(returnTwoAsync());
+       futureGroup.add(returnThreeAsync());
+       futureGroup.close();
+       futureGroup.future.then((List<int> value) {
+           int total = 0;
+           for (var element in value) {
+               total += element;
+           }
+           setState(() {
+               result = total.toString();
+           });
+       });
+   }
+   ```
+
+2. Edit `onPressed()`
+   ```dart
+   onPressed: () {
+       returnFG();
+   },
+   ```
+
+3. Hasil
+    ![P4S1](img/P4S1.png)
+
+    - Soal 7
+    > ![P4S1](img/P4S1.png)
