@@ -99,6 +99,8 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
     > ```dart
     > const path = '/books/v1/volumes/jWTvDwAAQBAJ';
     > ```
+    > ![P1T2](img/P1T2.png)
+
 5. Tambah kode di ElevatedButton
 
    ```dart
@@ -114,6 +116,10 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
        });
    }
    ```
+    - Soal 3
+    > - `substring(0, 450)` mengambil potongan teks dari indeks ke-0 hingga ke-449.
+    > - `.catchError((_) { ... })` digunakan untuk menangani error yang terjadi selama proses getData().
+    >
 
 6. Hasil
 
