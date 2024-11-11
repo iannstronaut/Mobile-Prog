@@ -660,11 +660,13 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
     ```
 
     - Soal 16
+
       > - Ketika button di klik akan mengubah warna pada NavigationFirstScreen
       >
       > ```dart
       > Column(
       > ```
+
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
@@ -704,10 +706,140 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
               ),
             ],
             ),
+
       > ```
       > Menjadi 5 Warna
       > ```
       >
       > ![P8T13S1](img/P8T16S1.png) > ![P8T13S2](img/P8T16S2.png) > ![P8T13S3](img/P8T16S3.png)
-      
-      >
+
+      > ![P8T13S3](img/P8T16S4.png)
+
+## Praktikum 9
+
+1. Buat file baru `navigation_dialog.dart`
+
+2. Isi kode `navigation_dialog.dart`
+
+   ```dart
+   import 'package:flutter/material.dart';
+
+   class NavigationDialogScreen extends StatefulWidget {
+       const NavigationDialogScreen({super.key});
+
+       @override
+       State<NavigationDialogScreen> createState() => _NavigationDialogScreenState();
+   }
+
+   class _NavigationDialogScreenState extends State<NavigationDialogScreen> {
+       Color color = Colors.blue.shade700;
+       @override
+       Widget build(BuildContext context) {
+           return Scaffold(
+               backgroundColor: color,
+               appBar: AppBar(
+                   title: const Text('Navigation Dialogue Screen'),
+               ),
+               body: Center(
+                   child:
+                       ElevatedButton(onPressed: () {}, child: const Text("Change Color"),
+                   ),
+               ),
+           );
+       }
+   }
+   ```
+
+3. Tambah method async
+
+   ```dart
+   _showColorDialog(BuildContext context) async {
+       await showDialog(
+           context: context,
+           builder: (_) {
+               return AlertDialog(
+               title: const Text('Very important question'),
+               content: const Text('Please choose a color'),
+               actions: <Widget>[
+                       TextButton(
+                       onPressed: () {
+                           color = Colors.red.shade700;
+                       },
+                       child: const Text("Red"),
+                       ),
+                       TextButton(
+                       onPressed: () {
+                           color = Colors.green.shade700;
+                       },
+                       child: const Text("Green"),
+                       ),
+                       TextButton(
+                       onPressed: () {
+                           color = Colors.blue.shade700;
+                       },
+                       child: const Text("Blue"),
+                       ),
+                   ],
+               );
+           },
+       );
+   }
+   ```
+
+4. Panggil method di ElevatedButton
+
+   ```dart
+   onPressed: () {
+       _showColorDialog(context);
+   }
+   ```
+
+5. Edit `main.dart`
+
+   ```dart
+   home: const NavigationDialogScreen()
+   ```
+
+6. Hasil
+   ![P9S1](img/P9S1.png)
+
+   - Soal 17
+
+   ```dart
+   <Widget>[
+           TextButton(
+             onPressed: () {
+               color = Colors.red.shade700;
+             },
+             child: const Text("Red"),
+           ),
+           TextButton(
+             onPressed: () {
+               color = Colors.green.shade700;
+             },
+             child: const Text("Green"),
+           ),
+           TextButton(
+             onPressed: () {
+               color = Colors.blue.shade700;
+             },
+             child: const Text("Blue"),
+           ),
+           TextButton(
+             onPressed: () {
+               color = Colors.purple.shade700;
+             },
+             child: const Text("Purple"),
+           ),
+           TextButton(
+             onPressed: () {
+               color = Colors.orange.shade700;
+             },
+             child: const Text("Orange"),
+           ),
+         ],
+   ```
+
+   > ![P9T13S1](img/P9T17S1.png) > ![P9T13S2](img/P9T17S2.png) > ![P9T13S3](img/P9T17S3.png)
+
+   >

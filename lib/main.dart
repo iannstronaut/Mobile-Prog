@@ -5,6 +5,7 @@ import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'package:async/async.dart';
 import 'package:praktikum11/geolocation.dart';
+import 'package:praktikum11/navigation_dialog.dart';
 import 'package:praktikum11/navigator_first.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const NavigationFirst(),
+      home: const NavigationDialogScreen(),
     );
   }
 }
