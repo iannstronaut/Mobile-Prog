@@ -467,6 +467,64 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
     ```
 
     - Soal 12
-    > ![P6S2](img\P6S2.png)
-    > ![P6S1](img\P6S1.png)
-    > 
+    > ![P6S2](img/P6S2.png)
+    > ![P6S1](img/P6S1.png)
+    > ![P6T12](img/P6T12.png)
+
+## Praktikum 7
+1. Modifikasi method `getPosition()`
+    ```dart
+    Future<Position> getPosition() async {
+        await Geolocator.isLocationServiceEnabled();
+        await Future.delayed(const Duration(seconds: 3));
+        Position position = await Geolocator.getCurrentPosition();
+        return position;
+    }
+    ```
+
+2. Tambah variabel
+    ```dart
+    Future<Position>? position;
+    ```
+
+3. Tambah `initState()`
+    ```dart
+    @override
+    void initState() {
+        super.initState();
+        position = getPosition();
+    }
+    ```
+
+4. Edit method `build()`
+    ```dart
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+            appBar: AppBar(
+                title: const Text("Current Location By"),
+            ),
+            body: Center(
+                child: FutureBuilder(
+                    future: position,
+                    builder: (BuildContext context, AsyncSnapshot<Position> snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting) {
+                            return const CircularProgressIndicator();
+                        } else if (snapshot.connectionState == ConnectionState.done) {
+                            return Text(snapshot.data.toString());
+                        } else {
+                            return const Text('');
+                        }
+                    },
+                ),
+            ),
+        );
+    }
+    ```
+
+5. Hasil 
+    ![P7S1](img/P7S1.png)
+
+    > - Tidak ada perbedaan UI karna pada dasarnya kedua kode sama sama menghasilkan hasil yang sama
+    > ![P7S1](img/P7S1.png)
+    >
