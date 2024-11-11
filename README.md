@@ -99,6 +99,7 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
     > ```dart
     > const path = '/books/v1/volumes/jWTvDwAAQBAJ';
     > ```
+    
     > ![P1T2](img/P1T2.png)
 
 5. Tambah kode di ElevatedButton
@@ -119,7 +120,8 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
     - Soal 3
     > - `substring(0, 450)` mengambil potongan teks dari indeks ke-0 hingga ke-449.
     > - `.catchError((_) { ... })` digunakan untuk menangani error yang terjadi selama proses getData().
-    >
+
+    > ![P1T3](img/P1T3.png)
 
 6. Hasil
 
@@ -176,6 +178,12 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
 4. Hasil
 
    ![P2S1](img/P2S1.png)
+
+    - Soal 4
+    > - Ketiga method (`returnOneAsync`, `returnTwoAsync`, dan `returnThreeAsync`) adalah fungsi asynchronous yang masing-masing mengembalikan nilai integer (1, 2, dan 3). Setelah delay selama 3 detik, masing-masing fungsi akan mengembalikan nilai integer (1, 2, atau 3).
+    > - Method `count()` adalah fungsi asynchronous yang digunakan untuk menghitung total dari hasil ketiga fungsi di atas. 
+
+    > ![P2T4]()
 
 ## Praktikum 3
 
