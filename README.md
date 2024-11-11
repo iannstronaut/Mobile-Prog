@@ -99,7 +99,7 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
     > ```dart
     > const path = '/books/v1/volumes/jWTvDwAAQBAJ';
     > ```
-    
+
     > ![P1T2](img/P1T2.png)
 
 5. Tambah kode di ElevatedButton
@@ -183,7 +183,7 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
     > - Ketiga method (`returnOneAsync`, `returnTwoAsync`, dan `returnThreeAsync`) adalah fungsi asynchronous yang masing-masing mengembalikan nilai integer (1, 2, dan 3). Setelah delay selama 3 detik, masing-masing fungsi akan mengembalikan nilai integer (1, 2, atau 3).
     > - Method `count()` adalah fungsi asynchronous yang digunakan untuk menghitung total dari hasil ketiga fungsi di atas. 
 
-    > ![P2T4]()
+    > ![P2T4](img/P2T4.png)
 
 ## Praktikum 3
 
@@ -238,6 +238,11 @@ Pemrograman asynchronous (async) dimanfaatkan untuk aplikasi menyelesaikan tugas
        }
    }
    ```
+
+    - Soal 5
+    > - Kode ini menggunakan _Completer_ untuk mengontrol kapan sebuah _Future_ selesai. Fungsi `getNumber()` membuat `Completer<int>`, memanggil `calculate()`, dan mengembalikan _Future_ yang belum selesai. Fungsi `calculate()` menunggu 5 detik dengan _Future.delayed_, lalu menyelesaikan _Future_ tersebut dengan nilai 42 menggunakan `completer.complete(42)`. Hasilnya, _Future_ yang dikembalikan oleh `getNumber()` akan selesai dengan nilai 42 setelah 5 detik, memungkinkan kontrol manual atas penyelesaian _Future_ tersebut.
+    
+    > ![P3T5]() 
 
 6. Pindah ke `onPressed()`
 
